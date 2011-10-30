@@ -6,7 +6,6 @@ import payroll.helpers.DateHelper;
 import payroll.models.Employee;
 import payroll.models.benefits.Benefit;
 import payroll.models.benefits.BenefitCalculationMethod;
-import payroll.models.benefits.BenefitRule;
 import payroll.models.benefits.MonthsProportionalCalculationMethod;
 import payroll.models.benefits.SingleValueCalculationMethod;
 
@@ -32,10 +31,5 @@ public class ThirteenthSalary implements Benefit {
 			return new SingleValueCalculationMethod();
 		else
 			return new MonthsProportionalCalculationMethod(DateHelper.NumberOfMonths(employee.getEmployeeHiredDate(), calculationDate));
-	}
-
-	@Override
-	public BenefitRule getBenefitCalculationRule() {
-		return null;
-	}
+	}	
 }

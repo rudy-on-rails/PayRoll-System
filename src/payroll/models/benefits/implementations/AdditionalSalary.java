@@ -4,7 +4,7 @@ import org.joda.time.LocalDate;
 
 import payroll.models.Employee;
 import payroll.models.benefits.BasedOnDateBenefitRule;
-import payroll.models.benefits.Benefit;
+import payroll.models.benefits.BenefitByRule;
 import payroll.models.benefits.BenefitCalculationMethod;
 import payroll.models.benefits.BenefitRule;
 import payroll.models.benefits.BenefitRuleArgument;
@@ -14,11 +14,8 @@ import payroll.models.benefits.SingleValueCalculationMethod;
 /**
  * @author  rudyseidinger
  */
-public class AdditionalSalary implements Benefit {	
-	/**
-	 * @uml.property  name="benefitRule"
-	 * @uml.associationEnd  
-	 */
+public class AdditionalSalary implements BenefitByRule {	
+	
 	private BenefitRule benefitRule; 	
 	
 	@Override

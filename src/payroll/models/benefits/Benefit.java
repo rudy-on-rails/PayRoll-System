@@ -5,8 +5,7 @@ import payroll.models.Employee;
 
 
 
-public interface Benefit {
+public interface Benefit  {
 	double calculateBenefitValue(LocalDate calculationDate, Employee employee);
-	BenefitCalculationMethod getBenefitCalculationMethod();
-	BenefitRule getBenefitCalculationRule();	
+	BenefitCalculationMethod getBenefitCalculationMethod();	
 }
