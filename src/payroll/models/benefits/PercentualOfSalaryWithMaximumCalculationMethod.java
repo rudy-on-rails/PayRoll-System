@@ -15,14 +15,17 @@ public class PercentualOfSalaryWithMaximumCalculationMethod implements
 
 	@Override
 	public double getCalculatedValue(double initialCalculationValue) {
-		if (applyPercentageEmployeeSalary(employeeSalary) > maximumValueToReach)
+		if (salaryPercentageIsEqualOrGreaterThanMaximumValue())
 			return initialCalculationValue - maximumValueToReach;
 		else
-			return initialCalculationValue - (employeeSalary * percentualToApply) / 100;
+			return initialCalculationValue - applyPercentageEmployeeSalary();
 	}
 
-	private double applyPercentageEmployeeSalary(double employeeSalary) {
+	private boolean salaryPercentageIsEqualOrGreaterThanMaximumValue() {
+		return applyPercentageEmployeeSalary() >= maximumValueToReach;
+	}
+
+	private double applyPercentageEmployeeSalary() {
 		return (employeeSalary * percentualToApply) / 100;
 	}
-
 }
