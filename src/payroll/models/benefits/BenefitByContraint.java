@@ -1,7 +1,7 @@
 package payroll.models.benefits;
 
-import payroll.models.benefits.constraints.BenefitConstraint;
+import payroll.models.benefits.constraints.BenefitConstraintRestrictor;
 
 public interface BenefitByContraint extends Benefit {
-	public abstract BenefitConstraint getBenefitCalculationConstraint();
+	public abstract BenefitConstraintRestrictor getBenefitCalculationConstraint();
 }

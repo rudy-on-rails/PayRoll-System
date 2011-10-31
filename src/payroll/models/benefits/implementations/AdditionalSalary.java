@@ -6,7 +6,7 @@ import payroll.models.Employee;
 import payroll.models.benefits.BenefitByContraint;
 import payroll.models.benefits.calculation_methods.BenefitCalculationMethod;
 import payroll.models.benefits.calculation_methods.SingleValueCalculationMethod;
-import payroll.models.benefits.constraints.BenefitConstraint;
+import payroll.models.benefits.constraints.BenefitConstraintRestrictor;
 import payroll.models.benefits.constraints.arguments.BenefitConstraintArgument;
 import payroll.models.benefits.constraints.arguments.EveryYearAfterFirstYearBenefitConstraintArgument;
 
@@ -15,7 +15,7 @@ import payroll.models.benefits.constraints.arguments.EveryYearAfterFirstYearBene
  */
 public class AdditionalSalary implements BenefitByContraint {	
 	
-	private BenefitConstraint benefitRule; 	
+	private BenefitConstraintRestrictor benefitRule; 	
 	private Employee employee;
 	
 	@Override
@@ -23,7 +23,7 @@ public class AdditionalSalary implements BenefitByContraint {
 		this.employee = employee;
 		this.benefitRule = getBenefitCalculationConstraint();				
 		EveryYearAfterFirstYearBenefitConstraintArgument dateMustBeAppliedRuleArgument = new EveryYearAfterFirstYearBenefitConstraintArgument(calculationDate);				
-		if (this.benefitRule.appliesFor(dateMustBeAppliedRuleArgument))
+		if (this.benefitRule.doesAppliesFor(dateMustBeAppliedRuleArgument))
 			return this.getBenefitCalculationMethod().getCalculatedValue(getInitialCalculationValue());
 		return 0;
 	}
@@ -42,7 +42,7 @@ public class AdditionalSalary implements BenefitByContraint {
 	}
 
 	@Override
-	public BenefitConstraint getBenefitCalculationConstraint() {
-		return new BenefitConstraint(getLocalBenefitArgument());
+	public BenefitConstraintRestrictor getBenefitCalculationConstraint() {
+		return new BenefitConstraintRestrictor(getLocalBenefitArgument());
 	}
 }
