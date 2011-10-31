@@ -1,4 +1,5 @@
-package payroll.models.benefits;
+package payroll.models.benefits.calculation_methods;
+
 
 public class PercentualOfSalaryWithMaximumCalculationMethod implements
 		BenefitCalculationMethod {

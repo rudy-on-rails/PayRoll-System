@@ -5,9 +5,9 @@ import org.joda.time.LocalDate;
 import payroll.helpers.DateHelper;
 import payroll.models.Employee;
 import payroll.models.benefits.Benefit;
-import payroll.models.benefits.BenefitCalculationMethod;
-import payroll.models.benefits.MonthsProportionalCalculationMethod;
-import payroll.models.benefits.SingleValueCalculationMethod;
+import payroll.models.benefits.calculation_methods.BenefitCalculationMethod;
+import payroll.models.benefits.calculation_methods.MonthsProportionalCalculationMethod;
+import payroll.models.benefits.calculation_methods.SingleValueCalculationMethod;
 
 /**
  * @author  rudyseidinger

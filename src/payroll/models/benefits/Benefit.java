@@ -2,6 +2,7 @@ package payroll.models.benefits;
 
 import org.joda.time.LocalDate;
 import payroll.models.Employee;
+import payroll.models.benefits.calculation_methods.BenefitCalculationMethod;
 
 
 
