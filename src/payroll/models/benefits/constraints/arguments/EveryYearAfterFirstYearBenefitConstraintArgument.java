@@ -9,18 +9,17 @@ import payroll.helpers.DateHelper;
 /**
  * @author  rudyseidinger
  */
-public class EveryYearAfterFirstYearBenefitConstraintArgument implements BenefitConstraintArgument {
-	
+public class EveryYearAfterFirstYearBenefitConstraintArgument implements BenefitConstraintArgument {	
 	private LocalDate currentCheckingLocalDate;
 	
+	public EveryYearAfterFirstYearBenefitConstraintArgument(LocalDate currentCheckingLocalDate){
+		this.currentCheckingLocalDate = currentCheckingLocalDate;
+	}
 	
 	public LocalDate getCurrentCheckingLocalDate() {
 		return currentCheckingLocalDate;
 	}
-	
-	public void setCurrentCheckingLocalDate(LocalDate currentCheckingLocalDate) {
-		this.currentCheckingLocalDate = currentCheckingLocalDate;
-	}
+		
 	@Override
 	public boolean canBeAppliedFor(BenefitConstraintArgument benefitRuleArgument) {
 		if (!(benefitRuleArgument instanceof EveryYearAfterFirstYearBenefitConstraintArgument))

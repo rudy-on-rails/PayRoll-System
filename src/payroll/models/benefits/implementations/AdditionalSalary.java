@@ -22,8 +22,7 @@ public class AdditionalSalary implements BenefitByContraint {
 	public double calculateBenefitValue(LocalDate calculationDate, Employee employee) {
 		this.employee = employee;
 		this.benefitRule = getBenefitCalculationConstraint();				
-		EveryYearAfterFirstYearBenefitConstraintArgument dateMustBeAppliedRuleArgument = new EveryYearAfterFirstYearBenefitConstraintArgument();
-		dateMustBeAppliedRuleArgument.setCurrentCheckingLocalDate(calculationDate);		
+		EveryYearAfterFirstYearBenefitConstraintArgument dateMustBeAppliedRuleArgument = new EveryYearAfterFirstYearBenefitConstraintArgument(calculationDate);				
 		if (this.benefitRule.appliesFor(dateMustBeAppliedRuleArgument))
 			return this.getBenefitCalculationMethod().getCalculatedValue(getInitialCalculationValue());
 		return 0;
@@ -34,9 +33,7 @@ public class AdditionalSalary implements BenefitByContraint {
 	}
 	
 	private BenefitConstraintArgument getLocalBenefitArgument() {
-		EveryYearAfterFirstYearBenefitConstraintArgument everyYearBenefitRuleArgument = new EveryYearAfterFirstYearBenefitConstraintArgument();
-		everyYearBenefitRuleArgument.setCurrentCheckingLocalDate(employee.getEmployeeHiredDate());
-		return everyYearBenefitRuleArgument;
+		return new EveryYearAfterFirstYearBenefitConstraintArgument(employee.getEmployeeHiredDate());			
 	}
 
 	@Override
